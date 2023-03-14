@@ -4,11 +4,11 @@ resource "aws_security_group" "allow_ssh" {
   vpc_id      = data.aws_vpc.main.id
 
   ingress {
-    description      = "SSH from Internet"
-    from_port        = 22
-    to_port          = 22
-    protocol         = "tcp"
-    cidr_blocks      = [var.myIP]
+    description = "SSH from Internet"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = [var.myIP]
   }
 
   tags = {
@@ -22,11 +22,11 @@ resource "aws_security_group" "allow_mysql" {
   vpc_id      = data.aws_vpc.main.id
 
   ingress {
-    description      = "MySQL from Internet"
-    from_port        = 3306
-    to_port          = 3306
-    protocol         = "tcp"
-    cidr_blocks      = [var.myIP]
+    description = "MySQL from Internet"
+    from_port   = 3306
+    to_port     = 3306
+    protocol    = "tcp"
+    cidr_blocks = [var.myIP]
   }
 
   tags = {
@@ -40,11 +40,11 @@ resource "aws_security_group" "internal" {
   vpc_id      = data.aws_vpc.main.id
 
   ingress {
-    description      = "internal"
-    protocol = -1
-    self = true
-    from_port = 0
-    to_port = 0
+    description = "internal"
+    protocol    = -1
+    self        = true
+    from_port   = 0
+    to_port     = 0
   }
 
   tags = {
